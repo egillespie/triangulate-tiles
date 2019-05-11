@@ -8,7 +8,7 @@ const config = require('../../package.json').config
 const pEnd = config.size
 const pMid = Math.round(config.size / 2)
 
-module.exports = async ({ t, r, b, l }) => {
+module.exports = async ({ t, r, b, l, quantity = 1 }) => {
   jsdom.window.document.body.innerHTML = ''
   const paper = raphael(0, 0, config.size, config.size)
 
@@ -52,6 +52,9 @@ module.exports = async ({ t, r, b, l }) => {
     line({ paper, x1: pMid, y1: pMid, x2: 0, y2: 0 })
   }
 
-  const id = `${t.name}-${r.name}-${b.name}-${l.name}-face`
+  let id = `${t.name}-${r.name}-${b.name}-${l.name}-face`
+  if (quantity > 1) {
+    id += `,${quantity}`
+  }
   await writeFile(`svg/${id}.svg`, jsdom.window.document.body.innerHTML)
 }

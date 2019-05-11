@@ -6,6 +6,9 @@
   "license": "MIT",
   "config": {
     "size": 450,
+    "quantities": {
+      "4": 2
+    },
     "colors": [
       {
         "name": "yellow",
