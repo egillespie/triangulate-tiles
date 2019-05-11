@@ -4,8 +4,37 @@
   "description": "Generates tile assets for the game Triangulate for upload to The Game Crafter",
   "author": "Erik Gillespie <erik.gillespie@gmail.com>",
   "license": "MIT",
+  "config": {
+    "size": 450,
+    "colors": [
+      {
+        "name": "yellow",
+        "hex": "F0F032"
+      },
+      {
+        "name": "green",
+        "hex": "0AB45A"
+      },
+      {
+        "name": "red",
+        "hex": "AA093C"
+      },
+      {
+        "name": "blue",
+        "hex": "005AC8"
+      },
+      {
+        "name": "pink",
+        "hex": "FA78FA"
+      },
+      {
+        "name": "white",
+        "hex": "FFFFFF"
+      }
+    ]
+  },
   "scripts": {
-    "clean": "rimraf dist && mkdir dist",
+    "clean": "rimraf dist && mkdir dist && mkdir dist/svg",
     "lint": "eslint src/**/*.js",
     "gen": "run-s lint clean start",
     "start": "node src/index"
