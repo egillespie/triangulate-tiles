@@ -1,10 +1,11 @@
 const config = require('../../package.json').config
+const createTile = require('./create-tile')
 
 module.exports = async () => {
-  const createTile = require('./create-tile')
   const numColors = config.colors.length
-  const quantity = config.quantities[4]
+  const quantity = config.quantities[4] || 1
 
+  // Produces 15 unique tiles
   for (let iTop = 0; iTop < numColors - 3; iTop++) {
     for (let iRight = iTop + 1; iRight < numColors - 2; iRight++) {
       for (let iBottom = iRight + 1; iBottom < numColors - 1; iBottom++) {
