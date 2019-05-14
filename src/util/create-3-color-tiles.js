@@ -8,13 +8,17 @@ module.exports = async () => {
   // Used to switch positions of second and third colors
   let toggle = true
 
-  // Produces 20 unique tiles
+  // Produces 60 unique tiles
   for (let primary = 0; primary < numColors; primary++) {
     const t = config.colors[primary]
     const r = config.colors[primary]
 
-    for (let secondary = primary + 1; secondary < numColors; secondary++) {
+    for (let secondary = 0; secondary < numColors; secondary++) {
+      if (secondary === primary) continue
+
       for (let terciary = secondary + 1; terciary < numColors; terciary++) {
+        if (terciary === primary) continue
+
         // Distribute second and third colors across bottom and left sides
         const b = config.colors[toggle ? secondary : terciary]
         const l = config.colors[toggle ? terciary : secondary]
