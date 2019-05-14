@@ -17,4 +17,8 @@
   // Create all 1-color tiles
   const createOneColorTiles = require('./util/create-1-color-tiles')
   await createOneColorTiles()
+
+  // Convert to PNGs
+  const generatePngFiles = require('./util/generate-png-files')
+  await generatePngFiles()
 })()
